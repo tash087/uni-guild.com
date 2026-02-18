@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お店のルール（やさしい解説） | 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js"></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
+        
+        /* セクション見出し */
+        .easy-section { margin-bottom: 45px; }
+        .easy-section h2 { color: #e67e22; border-bottom: 3px solid #fbd38d; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+        
+        /* 基本のルールボックス */
+        .rule-box { background: #fffaf5; border-radius: 12px; padding: 25px; margin-bottom: 20px; border-left: 6px solid #e67e22; }
+        .rule-box h3 { margin-top: 0; font-size: 1.2rem; color: #333; margin-bottom: 15px; font-weight: bold; border-bottom: 1px dashed #fbd38d; padding-bottom: 5px; }
+        .rule-box p { margin: 0 0 10px 0; font-size: 1rem; color: #555; line-height: 1.8; }
+
+        /* ランク表（グリッド表示） */
+        .rank-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 15px; }
+        .rank-item { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #fbd38d; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .rank-item strong { color: #d35400; font-size: 1.1rem; display: block; margin-bottom: 5px; }
+
+        /* 看板のプレビュー */
+        .sign-view { background: #a67c52; color: #1a1a1a; width: fit-content; padding: 20px 40px; border-radius: 4px; border: 5px solid #8d6239; font-family: 'Courier New', Courier, monospace; font-weight: bold; line-height: 1.6; margin: 20px auto; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.15); font-size: 1.1rem; }
+
+        /* 強制撤去・禁止（赤枠・詳細版） */
+        .bad-list { background: #fff5f5; border-left-color: #e74c3c; border-right: 1px solid #feb2b2; border-top: 1px solid #feb2b2; border-bottom: 1px solid #feb2b2; }
+        .bad-list h3 { color: #c0392b; border-bottom-color: #feb2b2; }
+        .bad-list ul { margin: 15px 0; padding-left: 20px; }
+        .bad-list li { margin-bottom: 12px; color: #c0392b; font-weight: bold; font-size: 0.95rem; line-height: 1.6; }
+        .bad-list .warning-footer { background: #c0392b; color: #fff; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 15px; text-align: center; font-weight: bold; }
+
+        .notice-area { background: #fffaf5; border: 2px dashed #e67e22; padding: 20px; border-radius: 15px; font-size: 1rem; color: #d35400; margin-bottom: 40px; text-align: center; }
+        
+        .btn-outline { display: inline-block; padding: 15px 40px; border: 2px solid #e67e22; color: #e67e22 !important; border-radius: 40px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 25px; }
+        .btn-outline:hover { background-color: #e67e22; color: #fff !important; transform: translateY(-2px); }
+        
+        strong { color: #222; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <div class="content-page">
+            <h1 class="page-title">ショップ運営ガイドライン（やさしい解説）</h1>
+            
+            <div class="notice-area">
+                <p>このルールは、サーバーの中でお店を開くときに守るべき約束をまとめたものです。<br>
+                <strong>「知らなかった」では済まされない大事な内容</strong>なので、最後までしっかり読んでください。</p>
+                <p style="margin-top: 10px; font-size: 0.85rem; font-weight: bold;">最終改定日: 2026年2月15日</p>
+            </div>
+
+            <section class="easy-section">
+                <h2>1. お店を出せる場所</h2>
+                <div class="rule-box">
+                    <h3>出せるワールドの使い分け</h3>
+                    <p>
+                        ・<strong>ショップワールド（要申請）：</strong>メインの買い物エリアです。しっかり管理したい人向け！<br>
+                        ・<strong>資源ワールド：</strong>申請なしで自由に出せますが、リセットで<strong>建物ごと消える</strong>ので注意してください。
+                    </p>
+                </div>
+                <div class="rule-box bad-list">
+                    <h3>ここには出せません！</h3>
+                    <p><strong>生活ワールド：</strong>景色をきれいに保つため、お店を作るのは<strong>絶対に禁止</strong>です。見つけ次第、すぐに運営が撤去（消去）します。</p>
+                </div>
+                <div class="rule-box">
+                    <h3>お店を出すための条件</h3>
+                    <p>
+                        ・<strong>一人1箇所：</strong>持てる場所（番地）は一人につき1箇所までです。<br>
+                        ・<strong>勝手に広げない：</strong>決められた範囲を勝手に広げてはいけません。ひどい場合は牢屋や追放の対象になります。<br>
+                        ・<strong>ログイン：</strong>最近1週間以内に遊んでいて、ちゃんとお手入れができることが必要です。<br>
+                        ・<strong>申請：</strong>Discordかゲーム内メール（tash087宛）で教えてください。
+                    </p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>2. 建物のサイズと特別なルール</h2>
+                <div class="rule-box">
+                    <h3>ランクごとの制限緩和</h3>
+                    <p>ランクが高いと、お店を高くしたり、かざり（額縁・生き物等）をたくさん置けるようになります。</p>
+                    <div class="rank-grid">
+                        <div class="rank-item"><strong>見習い（初期）</strong>高さ: y=-40まで / 20個まで</div>
+                        <div class="rank-item"><strong>新米建築家</strong>高さ: y=-30まで / 30個まで</div>
+                        <div class="rank-item"><strong>中堅建築家</strong>高さ: y=-10まで / 50個まで</div>
+                        <div class="rank-item"><strong>熟練建築家</strong>高さ: y=+20まで / 80個まで</div>
+                        <div class="rank-item"><strong>筆頭建築家以上</strong>高さ: y=256まで / 120個～</div>
+                    </div>
+                </div>
+                <div class="rule-box bad-list">
+                    <h3>地下利用の禁止ルール</h3>
+                    <p>
+                        お店の下を掘って使うことはできません。<br>
+                        床のかざりや配線の時に、下へ<strong>3ブロック分（y=-63）</strong>まで掘るならOKですが、<strong>地下室や地下倉庫を作るのは全プレイヤー禁止</strong>です。
+                    </p>
+                </div>
+                <div class="rule-box">
+                    <h3>お隣さんへの気配り</h3>
+                    <p>隣のお店の壁の裏側に、勝手に看板などを貼らないでください。壁越しに看板を貼ると、お隣さんがアイテムを置けなくなるトラブルの原因になります。</p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>3. お金と値段のルール</h2>
+                <div class="rule-box">
+                    <h3>みんなが楽しめる価格で</h3>
+                    <p>公式ショップ（AdminShop）の値段とかけ離れすぎていると、運営から調整をお願いすることがあります。また、転売だけを目的に商品を買い占める行為はやめましょう。</p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>4. お店の管理と看板の更新</h2>
+                <div class="rule-box">
+                    <h3>契約更新の看板（必須）</h3>
+                    <p>お店の入り口に、必ず以下の看板を立ててください。<strong>毎月最後の週</strong>に自分で書き換える必要があります。</p>
+                    <div class="sign-view">
+                        【契約更新】<br>
+                        お店の番地番号<br>
+                        自分のMCID<br>
+                        1/31（来月の末日）
+                    </div>
+                </div>
+
+                <div class="rule-box bad-list">
+                    <h3>【重要】強制撤去・アイテム消滅の条件</h3>
+                    <p>以下の条件に当てはまると、<strong>運営からの連絡なしにお店を撤去</strong>します。中のアイテムや建材はすべて消えてしまい、返せません。</p>
+                    <ul>
+                        <li><strong>期限切れ：</strong>看板の日付が過ぎた場合。（例：看板が「12/31」のまま「2/1」になった等）</li>
+                        <li><strong>在庫なし放置：</strong>1ヶ月以上、すべての商品が売り切れ（在庫なし）のまま放置されている場合。</li>
+                        <li><strong>見た目の放置：</strong>お店が未完成（骨組みだけ）だったり、一部が壊れたボロボロのまま営業・放置されている場合。</li>
+                        <li><strong>ログインなし：</strong>1週間以上ログインがなく、お手入れや管理がされていない場合。</li>
+                        <li><strong>ルール違反：</strong>地下室を勝手に作ったり、お店の範囲を広げたりした場合。</li>
+                    </ul>
+                    <div class="warning-footer">
+                        ※運営から「消しますよ」という個別の連絡は一切しません！
+                    </div>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>5. お店を返すとき</h2>
+                <div class="rule-box">
+                    <h3>お店を閉める（自主返還）</h3>
+                    <p>お店を閉める時は、中のアイテムをすべて自分で片付けてから、運営に報告してください。次に使う人のためにきれいに戻すのがマナーです。</p>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="shop-guideline.html" class="btn-outline">もっと詳しく！正式なガイドラインを見る</a><br>
+                <a href="terms-list.html" style="display: inline-block; margin-top: 25px; color: #666; text-decoration: none;">← 規約・ガイドライン一覧へ戻る</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

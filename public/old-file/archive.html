@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース一覧 - 箱庭クラフト！</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../js/include.js" defer></script>
+    <style>
+        /* アーカイブ専用の調整：style.cssに依存しすぎないよう独立させます */
+        .archive-container {
+            max-width: 900px; /* 読みやすい幅に絞る */
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        /* ニュースリストの外枠 */
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* カード同士の隙間 */
+        }
+
+        /* 個別のニュース項目：添付画像1枚目の「reward-card」風のデザイン */
+        .archive-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 20px; /* 角を丸く */
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* 柔らかな影 */
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none; /* 全体をリンクにする場合 */
+        }
+
+        .archive-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(230, 126, 34, 0.1);
+        }
+
+        /* 日付 */
+        .archive-date {
+            color: #888;
+            font-size: 0.9rem;
+            min-width: 100px;
+            font-weight: 500;
+        }
+
+        /* カテゴリバッジ：オレンジ */
+        .archive-category {
+            background: #e67e22;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px; /* カプセル型 */
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* 記事タイトル */
+        .archive-title {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .back-to-top-area {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .archive-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 10px;
+            }
+            .archive-date {
+                min-width: auto;
+            }
+            .archive-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="archive-container">
+        <section class="motto-hero-box">
+            <h1 class="main-motto">Archive</h1>
+            <p class="motto-subtext">過去の記事一覧</p>
+        </section>
+
+        <div id="archive-list" class="archive-list">
+            <p class="loading-text" style="text-align:center;">ニュースを読み込んでいます...</p>
+        </div>
+
+        <div class="back-to-top-area">
+            <a href="../index.html" class="btn-nav btn-outline-nav">トップページへ戻る</a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const archiveContainer = document.getElementById('archive-list');
+            
+            try {
+                const response = await fetch('../admin/news.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const newsData = await response.json();
+
+                if (newsData.length === 0) {
+                    archiveContainer.innerHTML = '<div class="archive-item" style="justify-content:center;">現在お知らせはありません。</div>';
+                    return;
+                }
+
+                // クラス名を新しく定義したものに変更
+                const html = newsData.map(item => `
+                    <a href="../${item.url}" class="archive-item">
+                        <span class="archive-date">${item.date}</span>
+                        <span class="archive-category">${item.category}</span>
+                        <span class="archive-title">${item.title}</span>
+                    </a>
+                `).join('');
+
+                archiveContainer.innerHTML = html;
+
+            } catch (error) {
+                console.error('読み込み失敗:', error);
+                archiveContainer.innerHTML = '<div class="archive-item" style="color:red; justify-content:center;">ニュースの読み込みに失敗しました。</div>';
+            }
+        });
+    </script>
+</body>
+</html>

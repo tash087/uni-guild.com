@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>規約・ガイドライン一覧 | 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js"></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        
+        /* 規約カードのグリッドレイアウト */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        /* 規約カード本体 */
+        .terms-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #eee; /* 初期状態は薄いグレー */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        /* カードホバー時：枠線をオレンジにし、浮き上がらせる */
+        .terms-card:hover {
+            transform: translateY(-5px);
+            border-color: #e67e22; 
+            box-shadow: 0 12px 24px rgba(230, 126, 34, 0.15);
+        }
+
+        .terms-card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.25rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .terms-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* ボタン配置エリア */
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .card-actions.has-easy-ver {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        /* ボタン共通設定：初期状態は背景色なし */
+        .btn-read, .btn-easy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 5px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+            background-color: transparent; /* 初期は透明 */
+        }
+
+        /* 1. 「全文を読む」ボタン（オレンジ） */
+        .btn-read {
+            color: #e67e22 !important;
+            border: 1px solid #fbd38d; /* 薄いオレンジの枠 */
+        }
+        /* ホバー時にオレンジで塗りつぶす */
+        .btn-read:hover {
+            background-color: #e67e22 !important;
+            color: #fff !important;
+            border-color: #e67e22;
+        }
+
+        /* 2. 「やさしい解説」ボタン（緑） */
+        .btn-easy {
+            color: #2d7a2d !important;
+            border: 1px solid #cde7cd; /* 薄い緑の枠 */
+        }
+        /* ホバー時に緑で塗りつぶす */
+        .btn-easy:hover {
+            background-color: #2d7a2d !important;
+            color: #fff !important;
+            border-color: #2d7a2d;
+        }
+
+        /* 解説ありバッジ */
+        .easy-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #27ae60;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <h1 class="page-title">規約・ガイドライン一覧</h1>
+        <p style="text-align: center; color: #888; margin-bottom: 40px;">
+            箱庭クラフトでの生活を支える、大切なルールと指針をまとめています。<br>
+            <span style="font-size: 0.9rem; color: #2d7a2d;">※「やさしい解説」では、難しい言葉を避けて要点を説明しています。</span>
+        </p>
+
+        <div class="terms-grid">
+            <div class="terms-card">
+                <span class="easy-badge">解説あり</span>
+                <h3>📜 利用規約</h3>
+                <p>全ての利用者が同意すべき、サーバー全体の基本原則と免責事項を定めています。</p>
+                <div class="card-actions has-easy-ver">
+                    <a href="terms.html" class="btn-read">全文を読む</a>
+                    <a href="terms-easy.html" class="btn-easy">💡 やさしい解説</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <span class="easy-badge">解説あり</span>
+                <h3>⚖️ 語句・行動の詳細定義</h3>
+                <p>禁止行為や権利（私有・共有）の範囲など、規約をより具体的に定義したものです。</p>
+                <div class="card-actions has-easy-ver">
+                    <a href="definitions.html" class="btn-read">全文を読む</a>
+                    <a href="definitions-easy.html" class="btn-easy">💡 やさしい解説</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <span class="easy-badge">解説あり</span>
+                <h3>🍁 ショップガイドライン</h3>
+                <p>プレイヤーショップの出店条件、価格設定、区画管理に関するルールです。</p>
+                <div class="card-actions has-easy-ver">
+                    <a href="shop-guideline.html" class="btn-read">全文を読む</a>
+                    <a href="shop-easy.html" class="btn-easy">💡 やさしい解説</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <span class="easy-badge">解説あり</span>
+                <h3>🏢 公共施設ガイドライン</h3>
+                <p>共有装置や交通網の整備・利用に関する公共の指針です。</p>
+                <div class="card-actions has-easy-ver">
+                    <a href="public-facility.html" class="btn-read">全文を読む</a>
+                    <a href="public-easy.html" class="btn-easy">💡 やさしい解説</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <h3>🎁 寄付規約</h3>
+                <p>サーバー維持のための寄付に関する、権利と注意点についての規定です。</p>
+                <div class="card-actions">
+                    <a href="donation_policy.html" class="btn-read">詳細を確認</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <h3>🔒 プライバシーポリシー</h3>
+                <p>Discordやゲーム内で取得される情報の取り扱い方針を定めています。</p>
+                <div class="card-actions">
+                    <a href="privacy.html" class="btn-read">詳細を確認</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <h3>🎨 知的財産・コンテンツ利用</h3>
+                <p>動画配信や建築物の権利、二次創作に関するガイドラインです。</p>
+                <div class="card-actions">
+                    <a href="ip_policy.html" class="btn-read">詳細を確認</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <h3>🏠 建築ガイドライン</h3>
+                <p>美しい街並みを守るための、建築高度やデザイン、土地利用に関する指針です。</p>
+                <div class="card-actions">
+                    <a href="archit_guideline.html" class="btn-read">詳細を確認</a>
+                </div>
+            </div>
+
+            <div class="terms-card">
+                <h3>📊 ランク別制限緩和表</h3>
+                <p>建築家ランクに応じたエンティティ上限や建築高度制限の数値をまとめたデータ表です。</p>
+                <div class="card-actions">
+                    <a href="rank-limits.html" class="btn-read">生活ワールド用を確認</a>
+                    <a href="rank-limits-shop.html" class="btn-read">ショップ区画用を確認</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

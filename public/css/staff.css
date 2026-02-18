@@ -1,0 +1,418 @@
+/* =========================================
+   運営詳細ページ (Staff Detail)
+   ========================================= */
+.staff-detail-container {
+    max-width: 950px;
+    margin: 40px auto;
+}
+
+.staff-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.text-primary-color {
+    color: var(--primary-color);
+}
+
+.staff-role-lead {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    letter-spacing: 1px;
+}
+
+/* レイアウト：左にカード、右に本文 */
+.staff-main-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* 左側：プロフィールカード */
+.staff-info-card {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.staff-visual {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.staff-large-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px; /* 少し角丸の四角 */
+    object-fit: cover;
+    border: 5px solid #fff3e0;
+    margin-bottom: 15px;
+}
+
+.staff-status {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+/* 定義リストの装飾 */
+.info-list dl dt {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.info-list dl dd {
+    margin-left: 0;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* 右側：メインコンテンツ */
+.staff-content-body {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.content-block h3 {
+    font-size: 1.3rem;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    margin: 30px 0 15px;
+    color: var(--text-color);
+}
+
+.content-block h3:first-child {
+    margin-top: 0;
+}
+
+/* 引用メッセージボックス */
+.message-quote-box {
+    margin-top: 40px;
+    background: #fff9f5;
+    padding: 30px;
+    border-radius: 20px;
+    border-right: 5px solid var(--primary-color);
+    position: relative;
+}
+
+.quote-author {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+/* ページネーションボタンの追加調整 */
+.btn-primary-nav {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-primary-nav:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   レスポンシブ (詳細ページ)
+   ========================================= */
+@media (max-width: 850px) {
+    .staff-main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .staff-info-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   運営紹介・モットーページ (About Page)
+   ========================================= */
+
+/* 1. モットーセクションの補足 */
+.motto-subtext {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-top: 20px;
+    line-height: 2;
+}
+
+/* 2. 運営方針 (Policy) */
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.policy-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #f9f9f9;
+}
+
+.policy-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: #fff3e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.policy-icon {
+    font-size: 2rem;
+}
+
+.policy-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.text-highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+    background: linear-gradient(transparent 70%, #ffe0b2 70%);
+}
+
+/* 3. 鯖主メッセージ (アバター付き) */
+.message-quote-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #fff9f5;
+    padding: 40px;
+    border-radius: 30px;
+    margin: 60px 0;
+}
+
+.quote-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    border: 4px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.quote-author span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* 4. 集合写真 (Wallpaper) */
+.wallpaper-container {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.team-wallpaper-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.wallpaper-container:hover .team-wallpaper-img {
+    transform: scale(1.05);
+}
+
+.wallpaper-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 40px 20px 20px;
+    color: white;
+    text-align: center;
+}
+
+.wallpaper-overlay p {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* 5. 運営チームグリッド (Member Cards) */
+.team-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.member-profile-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.member-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.card-header .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    background: #fff3e0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.member-profile-card .description {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+    min-height: 3.6em; /* 2行分確保 */
+}
+
+.detail-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.detail-link:hover {
+    text-decoration: underline;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .message-quote-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .wallpaper-overlay p {
+        font-size: 1rem;
+    }
+}
+
+/* =========================================
+   詳細ページ用 ナビゲーションボタン
+   ========================================= */
+.button-area-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+/* ボタン共通設定 */
+.btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    min-width: 160px;
+}
+
+/* 前へ・次へボタン（塗りつぶし） */
+.btn-primary-nav {
+    background: var(--primary-color);
+    color: white !important;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary-nav:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.2);
+}
+
+/* 一覧へ戻るボタン（枠線） */
+.btn-outline-nav {
+    background: transparent;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline-nav:hover {
+    background: #fff3e0;
+    transform: translateY(-2px);
+}
+
+/* レスポンシブ：スマホ表示では縦に並べる */
+@media (max-width: 600px) {
+    .button-area-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-nav {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    /* スマホ時は一覧ボタンを中央（2番目）から一番下にする場合は order を使用 */
+    .btn-outline-nav {
+        order: 3;
+    }
+}

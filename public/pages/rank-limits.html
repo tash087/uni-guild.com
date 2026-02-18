@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランク別制限緩和表 | 箱庭クラフト</title>
+    <meta name="description" content="箱庭クラフトにおける、建築家ランクごとのエンティティ上限および建築高度制限の詳細です。">
+    <meta name="keywords" content="Minecraft, マイクラ, 建築家ランク, 制限緩和, 箱庭クラフト">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+    <link rel="shortcut icon" href="../images/server_icon.png" type="image/png">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js" defer></script>
+    <style>
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #f0f0f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
+        
+        /* セクション装飾 */
+        .facility-section-h2 { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-top: 40px; color: #333; font-size: 1.5rem; }
+        .facility-item { margin-top: 25px; }
+        .facility-item h3 { color: #e67e22; margin-bottom: 12px; font-size: 1.15rem; border-left: 4px solid #e67e22; padding-left: 12px; }
+        
+        .text-strong-black { font-weight: bold; color: #000; }
+        .text-caution { color: #d35400; font-weight: bold; }
+
+        /* テーブルデザイン */
+        .table-wrapper { width: 100%; overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid #eee; }
+        .limit-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .limit-table th { background-color: #fcf1e8; color: #e67e22; padding: 15px; border: 1px solid #eee; text-align: center; font-size: 0.95rem; }
+        .limit-table td { padding: 15px; border: 1px solid #eee; text-align: center; font-size: 1rem; color: #555; }
+        .limit-table tr:nth-child(even) { background-color: #fafafa; }
+        .rank-name { font-weight: bold; color: #333; }
+        .highlight-val { color: #e67e22; font-weight: bold; font-size: 1.1rem; }
+
+        /* ボタンデザイン */
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #e67e22;
+            color: #e67e22 !important;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn-outline:hover { background-color: #e67e22; color: #fff !important; }
+
+        @media (max-width: 768px) {
+            .content-page { padding: 20px; }
+            .facility-section-h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="section-padding container">
+        <div class="content-page">
+            <h1 class="page-title">📊 ランク別制限緩和表</h1>
+
+            <section class="intro-text">
+                <p>
+                    本表は、生活ワールドにおけるサーバー負荷を適切に管理し、全てのプレイヤーが快適に動作する環境を維持するための基準です。<br>
+                    建築実績に応じてランクが上昇することで、より高度な自由度が与えられます。
+                </p>
+                <p class="small-note" style="color: #888; font-size: 0.9rem; margin-top: 10px;">
+                    <span class="text-strong-black">最終改定日:</span> 2026年2月15日
+                </p>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2">生活ワールド 制限緩和基準</h2>
+                
+                <div class="table-wrapper">
+                    <table class="limit-table">
+                        <thead>
+                            <tr>
+                                <th>ランク</th>
+                                <th>1チャンク内<br>エンティティ上限</th>
+                                <th>建築高度制限<br><small>(標準地面y=-60基準)</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="rank-name">なし（見習い）</td>
+                                <td><span class="highlight-val">15</span> 個</td>
+                                <td>y = <span class="text-strong-black">-45</span> まで <small>(地面+15)</small></td>
+                            </tr>
+                            <tr>
+                                <td class="rank-name">新米建築家</td>
+                                <td><span class="highlight-val">25</span> 個</td>
+                                <td>y = <span class="text-strong-black">-35</span> まで <small>(地面+25)</small></td>
+                            </tr>
+                            <tr>
+                                <td class="rank-name">中堅建築家</td>
+                                <td><span class="highlight-val">40</span> 個</td>
+                                <td>y = <span class="text-strong-black">-20</span> まで <small>(地面+40)</small></td>
+                            </tr>
+                            <tr>
+                                <td class="rank-name">熟練建築家</td>
+                                <td><span class="highlight-val">60</span> 個</td>
+                                <td>y = <span class="text-strong-black">0</span> まで <small>(地面+60)</small></td>
+                            </tr>
+                            <tr>
+                                <td class="rank-name">筆頭建築家</td>
+                                <td><span class="highlight-val">90</span> 個</td>
+                                <td>y = <span class="text-strong-black">+100</span> まで <small>(地面+160)</small></td>
+                            </tr>
+                            <tr>
+                                <td class="rank-name">匠（たくみ）</td>
+                                <td><span class="highlight-val">120</span> 個</td>
+                                <td>y = <span class="text-strong-black">+196</span> まで <small>(地面+256)</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="facility-section-h2">■ 制限緩和に関する補足事項</h2>
+                
+                <div class="facility-item">
+                    <h3>地下利用制限について</h3>
+                    <p>生活ワールドにおいては、ショップ区画とは異なり地下の利用が認められます。ただし、<span class="text-strong-black">y=-100（または岩盤）</span>を上限とし、大規模な空洞を作る場合はチャンク内の描画負荷に配慮してください。</p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>エンティティの定義と管理</h3>
+                    <p>額縁、防具立て、絵画、吊り看板、家畜、村人、ボート、トロッコ等を指します。</p>
+                    <p class="text-caution">※特に「村人」や「家畜」の密集はサーバーへの負荷が非常に高いため、ランクに関わらず1チャンク内に30体以上の生物を配置する場合は、運営へ事前に相談してください。</p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>建築高度制限の適用</h3>
+                    <p>本制限は、景観の統一感と描画距離への負荷を考慮したものです。ランク以上の高度に建築を行いたい場合は、建築家ランクの昇格を目指すか、運営へ特例申請を行ってください。</p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>制限超過時の対応</h3>
+                    <p>定期的な負荷チェックにより、ランク上限を著しく超える設置が確認された場合、付近のTPS（処理速度）低下の原因となっている箇所について、運営により整理・撤去の要請を行う場合があります。</p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>ショップ区画との違い</h3>
+                    <p>本表は生活ワールド専用です。ショップ区画（商業エリア）においては、本表よりも緩和された「ショップ運営ガイドライン」の制限値が優先的に適用されます。</p>
+                </div>
+            </section>
+
+            <section class="section-block" style="text-align: center; margin-top: 50px;">
+                <a href="terms-list.html" class="btn-outline">規約・ガイドライン一覧に戻る</a>
+            </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワールド情報 - ゆにくら！</title>
+<meta name="description" content="Minecraftサーバー「ゆにくら！」のワールド仕様、リセット方針、各ワールドの特徴に関する詳細情報です。">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="../images/server_icon.png" type="image/png">
+<link rel="shortcut icon" href="../images/server_icon.png" type="image/png">
+    <script src="../js/day-count.js"></script>
+<script src="../js/include.js"></script>
+
+<style>
+/* PC (デフォルト) ではモバイル用を非表示 */
+.mobile-list-table {
+    display: none;
+}
+
+/* モバイル (768px以下) ではPC用を非表示、モバイル用を表示 */
+@media (max-width: 768px) {
+    .desktop-table {
+        display: none;
+    }
+    .mobile-list-table {
+        display: block; /* table の代わりに block で縦積み */
+    }
+
+    /* モバイル用リストテーブルのカスタムスタイル */
+    .mobile-list-item {
+        background-color: var(--light-gray);
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .mobile-list-item h3 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 5px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.3em;
+    }
+    .mobile-list-item dl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    .mobile-list-item dt {
+        font-weight: bold;
+        color: var(--dark-gray);
+        width: 100px; /* 項目名の幅を固定 */
+        padding: 5px 0;
+        font-size: 0.9em;
+    }
+    .mobile-list-item dd {
+        margin-left: auto;
+        width: calc(100% - 100px);
+        padding: 5px 0;
+        text-align: right;
+    }
+}
+</style>
+</head>
+<body>
+<div id="header-placeholder"></div>
+
+<main>
+    <section class="content-detail">
+        <h1 class="page-title">🗺️ ワールド仕様・リセット方針</h1>
+        <p class="last-update" style="font-size: 0.9em; color: var(--dark-gray); margin-top: -10px; margin-bottom: 20px;">
+            最終更新日: 2025.11.14
+        </p>
+        
+        <p class="intro-text">
+            当サーバーは、<span class="text-strong-black">生活ワールド</span>を核とし、用途やリセット頻度の異なる複数のワールドで構成されています。
+        </p>
+        
+        <div class="facility-section">
+            <div class="important-note" style="background-color: #eaf1ff; border: 1px solid var(--primary-color); color: var(--primary-color);">
+                <p style="font-size: 1.1em; margin-bottom: 5px;">💾 【全ワールド共通】保護・バックアップ体制について</p>
+                <ul style="margin-top: 0; padding-left: 20px; list-style-type: none;">
+                    <li>✅ **爆破無効化**: すべてのワールドで、**TNTやクリーパー等によるブロックの破壊は無効化**されています。</li>
+                    <li>✅ **バックアップ**: すべてのワールドで、<span class="text-strong-black">一時間に一回</span>の頻度でバックアップを取得しています（ワールドによって異なる場合があります）。これにより、万が一の事態にも迅速な復旧が可能です。</li>
+                </ul>
+            </div>
+            
+            <h2>1. ワールド構成の比較</h2>
+            
+            <table class="data-table styled-table desktop-table">
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th class="table-th-primary">生活ワールド</th>
+                        <th>資源ワールド1</th>
+                        <th class="table-th-secondary">資源ワールド2</th>
+                        <th>クリエイティブ</th>
+                        <th>ロビー</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>主な目的</th>
+                        <td><span class="text-strong-black">建築 / 永住</span></td>
+                        <td><span class="text-dark-note">資材採取</span></td>
+                        <td><span class="text-dark-note">資材採取</span></td>
+                        <td>試作 / 練習</td>
+                        <td>ポータル / 待機</td>
+                    </tr>
+                    <tr>
+                        <th>リセット頻度</th>
+                        <td><span class="text-strong-black" style="color: var(--status-complete-color);">なし (永続)</span></td>
+                        <td><span style="font-weight: bold;">なし (不定期)</span></td>
+                        <td><span class="text-dark-note" style="color: #ff9800;">1~2ヶ月に最低1回</span></td>
+                        <td>なし (永続)</td>
+                        <td>なし (永続)</td>
+                    </tr>
+                    <tr>
+                        <th>ワールドボーダー</th>
+                        <td>±30,000ブロック</td>
+                        <td>±15,000ブロック</td>
+                        <td>±15,000ブロック</td>
+                        <td>±20,000ブロック</td>
+                        <td>固定小範囲</td>
+                    </tr>
+                    <tr>
+                        <th>主な特徴</th>
+                        <td>領地保護</td>
+                        <td>エンダーチェスト利用可</td>
+                        <td>Mobトラップ設置可</td>
+                        <td><span style="font-weight: bold;">GameMode C</span></td>
+                        <td>実装予定ワールド</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mobile-list-table">
+                
+                <div class="mobile-list-item">
+                    <h3>生活ワールド</h3>
+                    <dl>
+                        <dt>主な目的</dt><dd><span class="text-strong-black">建築 / 永住</span></dd>
+                        <dt>リセット頻度</dt><dd><span class="text-strong-black" style="color: var(--status-complete-color);">なし (永続)</span></dd>
+                        <dt>ボーダー</dt><dd>±30,000ブロック</dd>
+                        <dt>特徴</dt><dd>領地保護</dd>
+                    </dl>
+                </div>
+                
+                <div class="mobile-list-item">
+                    <h3>資源ワールド1</h3>
+                    <dl>
+                        <dt>主な目的</dt><dd><span class="text-dark-note">資材採取</span></dd>
+                        <dt>リセット頻度</dt><dd><span style="font-weight: bold;">なし (不定期)</span></dd>
+                        <dt>ボーダー</dt><dd>±15,000ブロック</dd>
+                        <dt>特徴</dt><dd>エンダーチェスト利用可</dd>
+                    </dl>
+                </div>
+
+                <div class="mobile-list-item">
+                    <h3>資源ワールド2</h3>
+                    <dl>
+                        <dt>主な目的</dt><dd><span class="text-dark-note">資材採取</span></dd>
+                        <dt>リセット頻度</dt><dd><span class="text-dark-note" style="color: #ff9800;">1~2ヶ月に最低1回</span></dd>
+                        <dt>ボーダー</dt><dd>±15,000ブロック</dd>
+                        <dt>特徴</dt><dd>Mobトラップ設置可</dd>
+                    </dl>
+                </div>
+
+                <div class="mobile-list-item">
+                    <h3>クリエイティブワールド</h3>
+                    <dl>
+                        <dt>主な目的</dt><dd>試作 / 練習</dd>
+                        <dt>リセット頻度</dt><dd>なし (永続)</dd>
+                        <dt>ボーダー</dt><dd>±20,000ブロック</dd>
+                        <dt>特徴</dt><dd><span style="font-weight: bold;">GameMode C</span></dd>
+                    </dl>
+                </div>
+
+                <div class="mobile-list-item">
+                    <h3>ロビー</h3>
+                    <dl>
+                        <dt>主な目的</dt><dd>ポータル / 待機</dd>
+                        <dt>リセット頻度</dt><dd>なし (永続)</dd>
+                        <dt>ボーダー</dt><dd>固定小範囲</dd>
+                        <dt>特徴</dt><dd>実装予定ワールド</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        
+        <div class="facility-section" style="margin-top: 50px;">
+            <h2>2. リセットに関する重要事項</h2>
+            
+            <div class="important-note">
+                <p style="font-size: 1.1em; color: #d32f2f; margin-bottom: 5px;">🚨 資源ワールド2 リセット時の注意点</p>
+                <p>リセットは、プレイヤーデータやチェストの内容には影響しませんが、<span class="text-black-underline">資源ワールド2、ネザー、エンドに置かれたブロックやアイテムは全て消滅します</span>。貴重品は必ず生活ワールドに移してください。</p>
+            </div>
+            
+            <div class="button-area">
+                <a href="public_facilities.html" class="btn-primary">公共施設案内を見る</a>
+                <a href="rules.html" class="btn-secondary">ルール・マナーを確認</a>
+                <a href="archit_guideline.html" class="btn-secondary">📜 建築ガイドライン</a>
+                <a href="region_policy.html" class="btn-secondary">🛡️ 領域保護ポリシー</a>
+                <a href="world_rules.html" class="btn-secondary">🌎 ワールド別詳細ルール</a>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<div id="footer-placeholder"></div>
+</body>
+</html>

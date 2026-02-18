@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>現在の状況 - 箱庭クラフト！</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/include.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section">
+        <h1 class="section-title">Current Status<span>サーバーの現在の状況</span></h1>
+        <p class="last-update">最終更新日: 2026/01/03</p>
+
+        <section class="status-grid">
+            <div class="status-card">
+                <h3>🏰 ロビー & ワープ</h3>
+                <ul>
+                    <li><strong>新ロビー完成:</strong> <code>/warp lobby</code> (住民以上) または <code>/spawn</code> でアクセス可能。</li>
+                    <li><strong>ワープ実装:</strong> 現在 <code>lobby</code> と <code>life</code> に対応しています。</li>
+                </ul>
+            </div>
+
+            <div class="status-card">
+                <h3>💎 共有倉庫 & 装備</h3>
+                <ul>
+                    <li><strong>共有倉庫:</strong> 2階へ「かまど・醸造台・エンチャ台」を移設完了。</li>
+                    <li><strong>個人ロッカー:</strong> 倉庫2階に設置（ピンクの文字が目印）。</li>
+                    <li><strong>限定販売:</strong> 倉庫2階にて「Wirerod」を500枚で販売中！</li>
+                </ul>
+            </div>
+
+            <div class="status-card highlight">
+                <h3>🛠️ 導入プラグイン</h3>
+                <ul>
+                    <li><strong>Jobs:</strong> <code>/jobs join</code> で就職可能！ <a href="#jobs-link">詳細はこちら</a></li>
+                    <li><strong>MCMMO:</strong> スキル要素を実装しました。レベル上げを楽しもう！</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="info-content-box">
+            <h2>📘 公式ガイドブックについて</h2>
+            <p>ロビー（スポーン地点）にて <strong>0箱庭コイン</strong> で購入可能です！<br>
+            サーバーの基本ルールやコマンドが記載されています。初心者の方はまずこちらをチェック！</p>
+            
+            <div class="credits-list">
+                <span><b>作成:</b> <@1307684939185262604>様</span>
+                <span><b>監査:</b> <@1376086063902228480> はじめ</span>
+                <span><b>運営:</b> 箱庭クラフト！運営チーム</span>
+            </div>
+        </section>
+
+        <section id="jobs-link" class="notice-simple-box">
+            <h3 style="margin-top:0;">🔗 Jobsプラグインの使い方</h3>
+            <p style="font-size: 0.9rem; color: var(--light-text);">※外部Wikiへ移動します。一部コマンドが本サーバーと異なる場合があります。</p>
+            <div class="link-flex">
+                <a href="https://seesaawiki.jp/kotaserver/d/Jobs%20Reborn" target="_blank" class="btn-nav btn-outline-nav">こた鯖様 Wiki</a>
+                <a href="https://wiki.gorogoro.space/?Jobs" target="_blank" class="btn-nav btn-outline-nav">ごろごろ鯖様 Wiki</a>
+                <a href="https://w.atwiki.jp/rearthserver/pages/43.html" target="_blank" class="btn-nav btn-outline-nav">ラース鯖様 Wiki</a>
+            </div>
+        </section>
+
+        <footer class="history-area">
+            <div style="margin-bottom: 20px;">
+                <p>内容に関する問い合わせ: <code>contact[a]mail.uni-guild.com</code> または <code>@tash087</code> DMまで</p>
+            </div>
+            <h4>修正履歴</h4>
+            <div class="history-log">
+2025/12/31 公開
+2026/01/02 [一部表現修正(内容変更なし)]
+2026/01/03 [一部表現修正 / Jobsプラグイン表記追加]
+            </div>
+        </footer>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
