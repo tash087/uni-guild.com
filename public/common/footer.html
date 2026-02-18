@@ -1,0 +1,59 @@
+<style>
+    footer {
+        background-color: #fcfaf7 !important;
+        padding: 60px 20px 40px !important;
+        text-align: center !important;
+        border-top: 1px solid #f0eee9 !important;
+        font-family: sans-serif !important;
+    }
+    .server-history-container {
+        margin: 20px 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .server-counter-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        background: #fff;
+        border-radius: 50px;
+        border: 1px solid #f0eee9;
+        font-weight: bold;
+        color: #555;
+        min-width: 280px;
+        height: 45px; /* 枠が潰れないよう固定 */
+    }
+    .reborn-days { border: 1.5px solid #e67e22 !important; }
+    .counter-highlight { color: #e67e22; font-size: 1.2rem; margin: 0 4px; }
+
+    .footer-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; margin-bottom: 20px; }
+    .footer-group a { color: #666 !important; font-size: 0.9rem; }
+    .footer-separator { color: #ddd; }
+    
+    footer p small { display: block; font-size: 0.75rem; color: #999; line-height: 1.8; }
+</style>
+
+<footer>
+    <div class="footer-links">
+        <div class="footer-group">
+            <a href="../pages/operation.html">運営情報</a> <span class="footer-separator">|</span>
+            <a href="../pages/about.html">運営紹介</a> <span class="footer-separator">|</span>
+            <a href="../pages/staff-recruit-info.html">採用情報</a> <span class="footer-separator">|</span>
+            <a href="../pages/faq.html">FAQ</a> <span class="footer-separator">|</span>
+            <a href="../pages/contact.html">お問い合わせ</a> <span class="footer-separator">|</span>
+            <a href="../pages/terms-list.html" style="font-weight: bold; color: #e67e22 !important;">規約・ガイドライン一覧</a> <span class="footer-separator">|</span>
+            <a href="../pages/tokushoho.html">特定商取引法表記</a>
+        </div>
+    </div>
+
+    <div class="server-history-container">
+        <div id="disp-hakoniwa" class="server-counter-box reborn-days"></div>
+        <div id="disp-total" class="server-counter-box" style="opacity: 0.8; font-size: 0.75rem;"></div>
+    </div>
+
+    <p><small>©箱庭クラフト 2025-2026 All rights reserved.<br> Powered by © 2003-2026 Shin Cloud Inc. </small></p>
+    <p><small>Minecraft は Mojang AB の登録商標です。<br>本サーバーは Mojang社から承認されておらず、関係ありません。</small></p>
+</footer>

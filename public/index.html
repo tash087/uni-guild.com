@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箱庭クラフト | 共に育む小さな世界</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/status.css?v=20260210_2">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js" defer></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <meta name="keywords" content="箱庭クラフト,Minecraft,マイクラ,1.21.4,マルチサーバー,Paper,プラグイン鯖">
+    
+    <style>
+        /* =========================================
+           サイト全体の基本スタイル（デフォルトフォント & 統一感）
+           ========================================= */
+        body {
+            font-family: sans-serif !important;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfaf6;
+            color: #4a4a4a;
+        }
+
+        /* 全リンクから「青い下線」を排除 */
+        a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        /* コンテナ設定 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- ニュースセクションの装飾（Archiveページと統一） --- */
+        .news-list-container {
+            margin-top: 30px;
+        }
+
+        .news-card-item {
+            background: #ffffff;
+            margin-bottom: 15px;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 180px;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .news-badge {
+            background: #e67e22;
+            color: #fff;
+            padding: 3px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .news-card-title {
+            font-weight: bold;
+            color: #333 !important;
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        /* ニュース一覧ボタンの装飾 */
+        .center-btn-area {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            background: #fff;
+            color: #888 !important;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: #fdfaf6;
+            border-color: #e67e22;
+            color: #e67e22 !important;
+            transform: translateY(-2px);
+        }
+
+        /* --- モットーセクション（維持しつつ微調整） --- */
+        .concept-lead {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            position: relative;
+            padding: 20px;
+        }
+
+        .concept-lead::before {
+            content: '“';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            font-size: 4rem;
+            color: #e67e22;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .concept-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(230, 126, 34, 0.15);
+        }
+
+        .card-green { border-bottom-color: #27ae60; }
+        .card-orange { border-bottom-color: #e67e22; }
+        .card-blue { border-bottom-color: #3498db; }
+
+        .card-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: #fdfaf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .concept-card:hover .card-icon-wrap {
+            transform: rotateY(360deg);
+        }
+
+        .concept-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .concept-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .news-card-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .news-meta { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">2025.12.21 本オープン</span>
+                <h1>自由な創造、共有する喜び。<br>共に育む、小さな世界。</h1>
+                <p>『箱庭クラフト』12/21より正式始動！</p>
+                <p class="status-label" style="background: rgba(255,255,255,0.2);">サイト再構築中！</p>
+                <div class="ip-container">
+                    <span class="ip-label">SERVER IP</span>
+                    <code id="server-ip">play.uni-guild.com</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section container">
+            <h2 class="section-title">News<span>最新情報</span></h2>
+            <div id="news-list" class="news-list-container">
+                </div>
+            <div class="center-btn-area">
+                <a href="news/archive.html" class="btn-outline">ニュース一覧へ</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section id="concept" class="section">
+                <h2 class="section-title">Concept<span>モットー</span></h2>
+                <p class="concept-lead">
+                    単なるサバイバルではなく、プレイヤー一人一人が「箱庭」を作るように丁寧に世界を構築し、それをみんなで共有・発展させていくことを目指します。
+                </p>
+                
+                <div class="card-grid">
+                    <div class="concept-card card-green">
+                        <div class="card-icon-wrap">🌱</div>
+                        <h3>自由な創造</h3>
+                        <p>自分のエリアを「箱庭」として愛でる建築。保護設定により、あなたの理想の空間を誰にも邪魔されず形にできます。</p>
+                    </div>
+
+                    <div class="concept-card card-orange">
+                        <div class="card-icon-wrap">🤝</div>
+                        <h3>共有する喜び</h3>
+                        <p>Discordと連携した密なコミュニティ。あなたの何気ない提案が、世界の新しいルールや施設に繋がる一歩になります。</p>
+                    </div>
+
+                    <div class="concept-card card-blue">
+                        <div class="card-icon-wrap">🏠</div>
+                        <h3>共に育む世界</h3>
+                        <p>徹底した負荷対策と、経済バランスの再構築が完了。一過性の流行ではなく、長く住み続けられる環境を約束します。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const newsContainer = document.getElementById('news-list');
+            try {
+                const response = await fetch('../admin/news.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const newsData = await response.json();
+                
+                if (newsData.length === 0) {
+                    newsContainer.innerHTML = '<p class="no-news">現在お知らせはありません。</p>';
+                    return;
+                }
+
+                // ニュースをカード形式で生成（Archiveページのデザインと統一）
+                const html = newsData.slice(0, 3).map(item => `
+                    <div class="news-card-item">
+                        <div class="news-meta">
+                            <span class="news-date">${item.date}</span>
+                            <span class="news-badge">${item.category}</span>
+                        </div>
+                        <a href="${item.url}" class="news-card-title">${item.title}</a>
+                    </div>
+                `).join('');
+                
+                newsContainer.innerHTML = html;
+            } catch (error) {
+                console.error('ニュースの読み込み失敗:', error);
+                newsContainer.innerHTML = '<p class="error-text">ニュースの読み込みに失敗しました。</p>';
+            }
+        });
+    </script>
+</body>
+</html>

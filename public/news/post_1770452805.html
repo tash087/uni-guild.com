@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【お知らせ】公式サイトにニュース機能を追加しました ＆ 今後の展望について - 箱庭クラフト！</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+   <script src="../js/include.js" defer></script>
+<script src="../js/day-count.js" defer></script>
+    <style>
+        /* =========================================
+           ニュース詳細ページの専用レイアウト修正
+           ========================================= */
+        
+        /* 【重要】ヘッダー（sticky）の裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word;
+            overflow: visible !important;
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .news-content ul {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .news-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* 本文内のリンク色 */
+        .news-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px dashed #e0ddd9;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.02.07</span>
+                    <span class="news-category-badge">お知らせ</span>
+                </div>
+                
+                <h1 class="news-title">【お知らせ】公式サイトにニュース機能を追加しました ＆ 今後の展望について</h1>
+                
+                <div class="news-author-info">
+                    Posted by tash087
+                </div>
+            </header>
+
+            <section class="news-content">
+                <p>いつも「箱庭クラフト！」をプレイしていただきありがとうございます。運営のtash087です。</p>
+
+                <p>この度、サーバーの最新情報をより迅速にお届けするため、公式サイトに<strong>「ニュース機能」</strong>を導入いたしました。今後はメンテナンス、イベント告知、アップデート情報などをこちらで発信していきます。</p>
+
+                <h3>🚀 今後の展望とアップデート予定</h3>
+                <p>現在、運営チームでは以下のプロジェクトを進行しています。</p>
+
+                <ul>
+                    <li><strong>建築コンテストの開催準備</strong><br>
+                    運営を中心に、皆さんの自慢の「箱庭」を披露し合えるイベントを企画中です。</li>
+                    
+                    <li><strong>新規プレイヤー向けガイドの整備</strong><br>
+                    初めての方でも安心して遊べるよう、Wikiやマニュアルページの拡充を進めています。</li>
+                </ul>
+
+                <p>「共に育む、小さな世界」というコンセプトを大切に、皆さんと一緒にこのサーバーをより楽しく、居心地の良い場所にしていきたいと考えています。</p>
+
+                <p>これからの「箱庭クラフト！」の発展に、どうぞご期待ください！</p>
+            </section>
+
+            <footer class="news-footer">
+                <a href="../index.html" class="btn-nav btn-outline-nav">トップへ戻る</a>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

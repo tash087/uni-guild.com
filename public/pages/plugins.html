@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐️ 主要機能ガイド（経済・マップ・便利機能） | ゆにくら！</title>
+    <meta name="description" content="サーバーで利用できる経済システム、マップ機能、快適性を高める便利機能（GSit, VeinMinerなど）の使い方と紹介。">
+    <meta name="keywords" content="Minecraft, プラグイン, 経済, Webマップ, QoL, ChestShop, VeinMiner, GSit, LWC">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+    <link rel="shortcut icon" href="../images/server_icon.png" type="image/png">
+    <script src="../js/script.js"></script>
+    <script src="../js/include.js"></script>
+
+    <style>
+        /* 新しいセクションのための追加スタイル */
+        .info-block {
+            padding: 20px;
+            margin: 20px 0;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-block h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        .plugin-list-detail dl {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 10px 15px;
+            align-items: baseline;
+            margin-top: 15px;
+            /* 最大幅を確保し、中央寄せを維持 */
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .plugin-list-detail dt {
+            font-weight: bold;
+            color: var(--dark-gray);
+        }
+
+        .plugin-list-detail dd {
+            margin-left: 0;
+            font-size: 0.95em;
+        }
+
+        /* -------------------------------------- */
+        /* スマートフォン向け修正: 768px未満の画面幅 */
+        /* -------------------------------------- */
+        @media (max-width: 768px) {
+            .plugin-list-detail dl {
+                /* グリッド表示を解除し、通常のブロック表示に戻す */
+                display: block;
+                /* 固定幅の指定を解除 */
+                grid-template-columns: 1fr; 
+                gap: 5px; /* 縦の隙間を調整 */
+                padding: 0 15px; /* 左右に少しパディングを持たせる */
+            }
+
+            .plugin-list-detail dt {
+                /* プラグイン名を見やすくする */
+                margin-top: 10px;
+                font-size: 1.1em;
+                border-bottom: 1px dotted var(--dark-gray);
+                padding-bottom: 3px;
+            }
+
+            .plugin-list-detail dd {
+                /* 説明文をインデントして見やすくする */
+                margin-left: 10px;
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="content-detail">
+            <h1 class="content-detail h1">⭐️ 主要機能ガイド（経済・マップ・便利機能）</h1>
+            <p class="intro-text">
+                当サーバーで利用できる、**より快適で楽しいサーバーライフ**を送るための主要な機能をご紹介します。これらの機能は各種プラグインによって実現されています。
+            </p>
+
+            <div class="facility-section">
+                <h2>💰 経済と金融システム (ChestShop, BankPlus, Vault)</h2>
+                <div class="info-block">
+                    <h3>プレイヤー主導の経済と銀行機能</h3>
+                    <p>
+                        経済基盤**「Vault」**と**「ChestShop」**による<span class="text-strong-black">プレイヤー間取引</span>に加え、**「BankPlus」**による**銀行/口座機能**が導入されています。
+                    </p>
+                    <ul>
+                        <li><span class="text-strong-black">個人ショップ:</span> チェストと看板を使った簡単な操作で、自分のアイテムを売買するショップを開設できます。</li>
+                        <li><span class="text-strong-black">銀行口座:</span> 資金を安全に管理したり、金利を得たり、プレイヤー間で送金したりすることが可能です。<span class="text-dark-note">（※銀行全体の設定は運営のみ編集可能です。）</span></li>
+                        <li><span class="text-strong-black">広告 (PlayerAds):</span> 自分のショップや企画をサーバー全体に有料で宣伝できます。<span class="text-dark-note">（※広告システムの設定・管理は運営のみ編集可能です。）</span></li>
+                    </ul>
+                    <p class="small-note">
+                        <span class="text-dark-note">重要:</span> 経済バランスを崩すほどの過度な価格操作や市場の買占めは、他のプレイヤーの公平なプレイを阻害するため、運営の介入対象となる場合があります。
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="facility-section bg-light-gray">
+                <h2>🌐 リアルタイム公開マップ (dynmap & BlueMap)</h2>
+                <div class="info-block" style="border-left-color: var(--secondary-color);">
+                    <h3>ワールドの全体像をWebで確認</h3>
+                    <p>
+                        **「dynmap」**と**「BlueMap」**により、サーバーのワールドを<span class="text-strong-black">Webブラウザ上でリアルタイムに閲覧</span>できます。
+                    </p>
+                    <ul>
+                        <li><span class="text-dark-note">利用メリット:</span> 広大なワールドの全体像を把握、未開拓エリアの探索、建築場所の選定に便利です。</li>
+                        <li><span class="text-dark-note">機能連携 (Dynmap-WorldGuard):</span> 領地保護プラグイン**WorldGuard**の保護領域もマップ上に表示されます。</li>
+                    </ul>
+                    <div class="button-area" style="margin-top: 20px;">
+                        <a href="#" class="btn-primary disabled-link" disabled>🌐 マップを開く (現在準備中)</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="facility-section">
+                <h2>🛋️ 快適性とQoL向上機能 (QoL: Quality of Life)</h2>
+
+                <div class="facility-item">
+                    <h3>座る、寝そべる、乗る (GSit & RideOn)</h3>
+                    <p>
+                        **「GSit」**により、**階段や特定のブロックに座ったり、寝そべったり**できます。**「RideOn」**により、他のプレイヤーや一部のモブの頭に乗る動作が可能です。
+                    </p>
+                    <p class="important-note-inline">
+                        **コマンド例:** 階段やブロックに視線を合わせて`/sit`、`/lay`、`/bellyflop`。他のプレイヤーに視線を合わせ`/ride`
+                    </p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>採掘・農業の効率化 (VeinMiner & SneakGrow)</h3>
+                    <p>
+                    <ul>
+                        <li><span class="text-strong-black">⛏️ VeinMiner:</span> ツールを持って**鉱石にスニーク**しながら破壊すると、**繋がった鉱石を一括で採掘**できます。</li>
+                        <li><span class="text-strong-black">🌱 SneakGrow:</span> 農作物の隣で**スニーク**していると、成長を早めることができます。</li>
+                    </ul>
+                    </p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>アイテム・チェスト保護 (LWC)</h3>
+                    <p>
+                        **「LWC」**プラグインにより、**チェスト、ドア、かまど**などのアイテムを<span class="text-strong-black">簡単なコマンド操作でロック（保護）</span>できます。荒らしや盗難から大切な財産を守るための必須機能です。
+                    </p>
+                </div>
+
+                <div class="facility-item">
+                    <h3>GUIメニューで簡単操作 (CommandPanels & EasyMenuPlugin)</h3>
+                    <p>
+                        **特定のアイテムやコマンド**で**メニュー（GUI）を開き**、ワープや各種設定を**クリック操作で実行**できます。煩雑なコマンドを覚える必要はありません。
+                    </p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="section-padding bg-light-gray plugin-list-detail">
+                <h2>📋 全導入プラグイン (A-Z順)</h2>
+                <p class="intro-text" style="margin-bottom: 20px;">
+                    現在、サーバーに導入されている全49個の主要プラグインを一覧で表示しています。<br>
+                    <span class="text-dark-note">※星印(*)は、メイン機能拡張または管理用プラグインであることを示します。</span>
+                </p>
+
+                <div class="info-list">
+                    <dl>
+                        <dt>1. AntiCreeper</dt>
+                        <dd>Creeperによる**ブロック破壊の防止**。</dd>
+                        <dt>2. BankPlus</dt>
+                        <dd>**銀行口座、金利、送金**など、高度な金融システムの提供。<span class="text-dark-note">（※各種設定は運営のみ編集可能。）</span></dd>
+                        <dt>3. BlueMap</dt>
+                        <dd>**高解像度な3D Webマップ**の提供。</dd>
+                        <dt>4. ChestShop</dt>
+                        <dd>プレイヤーチェストを使用した**ショップ/経済システムの実現**。</dd>
+                        <dt>5. CMILib</dt>
+                        <dd>CMIプラグイン群が使用するコアライブラリ。（機能連携に必須）</dd>
+                        <dt>6. CommandPanels</dt>
+                        <dd>**クリック操作可能なGUIコマンドパネル**の作成。</dd>
+                        <dt>7. CoreProtect</dt>
+                        <dd>**全てのブロック・インベントリ操作のログ記録**と**ロールバック機能**。荒らし対策の要。</dd>
+                        <dt>8. CustomJoinMessage</dt>
+                        <dd>プレイヤーの**サーバー参加/退出時にカスタムメッセージ**を表示。<span class="text-dark-note">（※メッセージ内容は運営のみ編集可能。）</span></dd>
+                        <dt>9. DecentHolograms</dt>
+                        <dd>**3Dホログラムテキスト**の表示。</dd>
+                        <dt>10. DiscordSRV</dt>
+                        <dd>Minecraftゲーム内チャットと**Discordチャンネルの双方向連携**。</dd>
+                        <dt>11. dynmap</dt>
+                        <dd>ブラウザでリアルタイムに確認できる**従来のWebマップ**の提供。</dd>
+                        <dt>12. *Dynmap-WorldGuard</dt>
+                        <dd>Webマップ上に**WorldGuardの保護領域を表示**。</dd>
+                        <dt>13. EasyMenuPlugin</dt>
+                        <dd>GUIメニュー作成を補助するユーティリティプラグイン。</dd>
+                        <dt>14. Essentials</dt>
+                        <dd>**テレポート、ホーム、ワープ**など、サーバーの基本機能コマンド全般。</dd>
+                        <dt>15. EssentialsChat</dt>
+                        <dd>Essentialsのチャット機能拡張（プレフィックス/サフィックスの表示）。</dd>
+                        <dt>16. EssentialsProtect</dt>
+                        <dd>Essentialsによる基本的なブロックの破壊/設置保護。</dd>
+                        <dt>17. EssentialsSpawn</dt>
+                        <dd>Essentialsによるスポーン地点の設定と管理。</dd>
+                        <dt>18. ExtraContexts</dt>
+                        <dd>LuckPermsなどの権限管理に高度な条件を追加する拡張機能。</dd>
+                        <dt>19. GSit</dt>
+                        <dd>**椅子やブロックに座ったり、寝そべったりする動作**の実現。</dd>
+                        <dt>20. ImageMap</dt>
+                        <dd>**画像をインゲームのマップアイテム**として表示する機能。</dd>
+                        <dt>21. Images</dt>
+                        <dd>画像表示に関する機能を提供する補助プラグイン。</dd>
+                        <dt>22. IpAddressLogger</dt>
+                        <dd>プレイヤーの接続IPアドレスを記録する管理ツール。</dd>
+                        <dt>23. Jecon</dt>
+                        <dd>経済システムに関するユーティリティ。</dd>
+                        <dt>24. LuckPerms</dt>
+                        <dd>プレイヤーの権限（ランク）を管理する**高性能な権限プラグイン**。</dd>
+                        <dt>25. LWC</dt>
+                        <dd>**チェスト、ドア、かまど**などを**ロック**し、盗難から保護する機能。</dd>
+                        <dt>26. *LunaChat</dt>
+                        <dd>**チャット機能の拡張**および制御。</dd>
+                        <dt>27. Multiverse-Core</dt>
+                        <dd>**複数のワールド（マルチワールド）を管理**する基盤プラグイン。</dd>
+                        <dt>28. Multiverse-Inventories</dt>
+                        <dd>**ワールドごとにインベントリを独立して管理**する機能。</dd>
+                        <dt>29. Multiverse-Portals</dt>
+                        <dd>ワールド間のテレポートを**ポータルとして設定**する機能。</dd>
+                        <dt>30. NBTAPI</dt>
+                        <dd>アイテムやエンティティのNBTデータを操作するためのAPI/ライブラリ。</dd>
+                        <dt>31. *OnTime</dt>
+                        <dd>**累積プレイ時間に基づいた報酬システム**。</dd>
+                        <dt>32. OpenInv</dt>
+                        <dd>管理者がプレイヤーのインベントリを**安全に確認するツール**。</dd>
+                        <dt>33. PlaceholderAPI</dt>
+                        <dd>サーバー情報やプレイヤー情報などを動的に取得し、表示に埋め込むためのAPI。</dd>
+                        <dt>34. Plan</dt>
+                        <dd>**高度なプレイヤー統計**とサーバーパフォーマンスをWebで表示。</dd>
+                        <dt>35. PlayerAds</dt>
+                        <dd>プレイヤーがゲーム内で**広告を出す機能**（経済連動）。<span class="text-dark-note">（※広告システムの設定・管理は運営のみ編集可能。）</span></dd>
+                        <dt>36. *PlugManX</dt>
+                        <dd>サーバーの**プラグインを再起動/ロード**するための管理者向けツール。</dd>
+                        <dt>37. PluginPortal</dt>
+                        <dd>プラグイン管理や連携のためのユーティリティ。</dd>
+                        <dt>38. RestartAR</dt>
+                        <dd>サーバーの**自動再起動**に関する管理機能。</dd>
+                        <dt>39. RideOn</dt>
+                        <dd>**他のプレイヤーやモブに乗る動作**の実現。</dd>
+                        <dt>40. SneakGrow</dt>
+                        <dd>**しゃがむ動作で農作物の成長を促進**する機能。</dd>
+                        <dt>41. TAB</dt>
+                        <dd>**プレイヤーリスト（TABキー）の表示や、ネームタグ、ボスバー**などをカスタマイズ。</dd>
+                        <dt>42. Vault</dt>
+                        <dd>経済・権限プラグイン間の連携を仲介する**統合API**。（非常に重要）</dd>
+                        <dt>43. VeinMiner</dt>
+                        <dd>**繋がった鉱石を一括で破壊**する機能（効率化）。</dd>
+                        <dt>44. ViaBackwards</dt>
+                        <dd>**古いクライアントバージョンから新しいサーバー**への接続を可能にする互換性プラグイン。</dd>
+                        <dt>45. ViaVersion</dt>
+                        <dd>**異なるクライアントバージョンからの接続を可能**にする互換性プラグイン。</dd>
+                        <dt>46. Votifier</dt>
+                        <dd>投票サイトからの**投票通知を受け取る**機能。</dd>
+                        <dt>47. VotifierListener</dt>
+                        <dd>投票通知を受け取り、**報酬を付与**する機能。</dd>
+                        <dt>48. WorldEdit</dt>
+                        <dd>管理者向けの**強力なワールド編集・建築補助ツール**。</dd>
+                        <dt>49. WorldGuard</dt>
+                        <dd>**領地保護、ワールドのフラグ設定**（PvP禁止など）を提供する保護プラグイン。</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公共施設利用および整備に関するガイドライン | 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js"></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
+        
+        .section-title { color: #333; border-bottom: 2px solid #2980b9; padding-bottom: 10px; margin-top: 40px; font-size: 1.5rem; }
+        .article { margin-bottom: 25px; line-height: 1.8; color: #444; }
+        .article-num { font-weight: bold; color: #2980b9; margin-right: 10px; }
+        
+        /* 箇条書きの調整 */
+        .article ul { margin-top: 10px; padding-left: 20px; }
+        .article li { margin-bottom: 8px; }
+
+        /* 重要・警告ボックス */
+        .warning-box { background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 20px; border-radius: 12px; margin: 25px 0; }
+        .info-box { background: #f0f7ff; border: 1px solid #bee3f8; color: #2b6cb0; padding: 20px; border-radius: 12px; margin: 25px 0; }
+
+        .btn-back { display: inline-block; padding: 12px 30px; border: 2px solid #2980b9; color: #2980b9 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 30px; }
+        .btn-back:hover { background-color: #2980b9; color: #fff !important; }
+        
+        .date-label { text-align: right; color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <div class="content-page">
+            <h1 class="page-title">公共施設利用および整備に関するガイドライン</h1>
+            <p class="date-label">最終改定日: 2026/02/15</p>
+            <p>本ガイドラインは、サーバー内の公共施設を適切に維持管理し、全てのプレイヤーが快適に利用するための基準を定めるものです。</p>
+
+            <section>
+                <h2 class="section-title">第1条：公共施設の定義</h2>
+                <div class="article">
+                    <span class="article-num">(1)</span>運営または公認団体が建設・管理する施設（スポーン地点、役場、中央駅、幹線道路等）。<br>
+                    <span class="article-num">(2)</span>一般プレイヤーが建設し、運営より「公認公共施設」として認定を受けた施設（有志の駅、共有農場、トラップタワー、公共植林場等）。<br>
+                    <small>※認定施設の一覧は、公式Webサイト等の「公共施設リスト」をご確認ください。</small>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">第2条：公認申請と認定基準</h2>
+                <div class="article">
+                    <span class="article-num">(1) 認定申請：</span>不特定多数の利用を目的とした施設を建設し、保護を希望する場合は、運営へ「公共施設認定」を申請することができます。<br>
+                    <span class="article-num">(2) 保護の適用：</span>認定された施設は、運営建設の施設に準ずる保護対象となり、本ガイドラインが適用されます。<br>
+                    <span class="article-num">(3) 認定基準：</span>周囲の景観を著しく損なうもの、または既に近隣に同機能の施設がある場合は、認定されないことがあります。
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">第3条：禁止事項と街道制限</h2>
+                <div class="article">
+                    <strong>■ 公共施設内での制限</strong>
+                    <ul>
+                        <li><strong>無許可改変：</strong>施設および敷地内での無許可の建築、破壊、改築は一切禁止です。</li>
+                        <li><strong>設置物の制限：</strong>景観を損なう看板の設置や、私物（チェスト、ベッド等）の放置を禁止します。</li>
+                    </ul>
+                </div>
+                <div class="article">
+                    <strong>■ 街道（メイン道路）付近の建築制限</strong>
+                    <ul>
+                        <li><strong>離隔距離：</strong>街道の縁から<strong>左右5マス以内</strong>への建築は原則として禁止します。</li>
+                        <li><strong>接続マナー：</strong>街道に私道を接続する場合は、周囲の歩道や街灯のデザインに配慮してください。</li>
+                        <li><strong>圧迫感の排除：</strong>街道を遮断する、または街道を覆う不自然な建築は修正対象となります。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">第4条：利用マナーと有料化規定</h2>
+                <div class="article">
+                    <span class="article-num">(1) 回路の保護：</span>トロッコや自動ドア等の回路設備を故意に妨害・破壊する行為を禁止します。<br>
+                    <span class="article-num">(2) 資源の維持：</span>共有農場等を利用した際は、必ず<strong>「植え直し」</strong>を行い、資源を補充してください。<br>
+                    <span class="article-num">(3) 有料化の承認：</span>運営に承認された一部の有志施設では、維持費として利用料が発生する場合があります。設置者の規定に従い正しく支払ってください。<br>
+                    <span class="article-num">(4) 強制有料化：</span>経済への影響が大きい高効率施設については、運営から有料化を命じることがあります。
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">第5条：維持管理と撤去ルール</h2>
+                <div class="article">
+                    <span class="article-num">(1) 維持責任：</span>設置者は施設が正常に機能するよう定期的なメンテナンスを行う義務を負います。<br>
+                    <span class="article-num">(2) 放置施設の扱い：</span>原則<strong>1ヶ月以上</strong>メンテナンスが行われず、機能不全または景観を損なう状態にある施設は、認定を取り消し、撤去・改修を行うことがあります。<br>
+                    <span class="article-num">(3) 公共事業：</span>サーバー全体の道路計画等と干渉する場合、移設やデザイン変更をお願いすることがあります。
+                </div>
+                <div class="warning-box">
+                    <strong>違反時の対応：</strong>
+                    故意に破壊した場合はCoreProtect等のログに基づき即時処罰を行います。抵触する私物等は警告看板の設置後、改善が見られない場合は強制撤去いたします。
+                </div>
+            </section>
+
+            <div style="text-align: center;">
+                <a href="terms-list.html" class="btn-back">規約・ガイドライン一覧へ戻る</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

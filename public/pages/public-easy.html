@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公共施設の使いかたガイド | 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js"></script>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+    <style>
+        body { font-family: sans-serif !important; background-color: #fdfaf6; }
+        .content-page { background: #fff; padding: 40px; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 40px; margin-bottom: 60px; }
+        
+        /* セクション装飾 */
+        .easy-section { margin-bottom: 40px; }
+        .easy-section h2 { color: #2980b9; border-bottom: 3px solid #bbdefb; padding-bottom: 8px; margin-bottom: 20px; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        
+        /* 項目ボックス */
+        .rule-box { background: #f0f7ff; border-radius: 12px; padding: 20px; margin-bottom: 15px; border-left: 5px solid #2980b9; }
+        .rule-box h3 { margin-top: 0; font-size: 1.1rem; color: #333; margin-bottom: 10px; font-weight: bold; }
+        .rule-box p { margin: 0; font-size: 0.95rem; color: #555; line-height: 1.7; }
+
+        /* 道路・マナー（緑） */
+        .nature-list { background: #f0f9f0; border-left-color: #27ae60; }
+        .nature-list h3 { color: #2d7a2d; }
+
+        /* 有料・注意（オレンジ） */
+        .point-box { background: #fffaf5; border-left-color: #e67e22; }
+        .point-box h3 { color: #d35400; }
+
+        /* 警告（赤） */
+        .bad-list { background: #fff5f5; border-left-color: #e74c3c; }
+        .bad-list h3 { color: #c0392b; }
+
+        .notice-area { background: #f0f7ff; border: 1px dashed #2980b9; padding: 15px; border-radius: 10px; font-size: 0.9rem; color: #2980b9; margin-bottom: 30px; text-align: center; }
+        
+        .btn-outline { display: inline-block; padding: 12px 30px; border: 2px solid #2980b9; color: #2980b9 !important; border-radius: 30px; font-weight: bold; text-decoration: none !important; transition: all 0.3s ease; margin-top: 20px; }
+        .btn-outline:hover { background-color: #2980b9; color: #fff !important; }
+        
+        strong { color: #333; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container section-padding">
+        <div class="content-page">
+            <h1 class="page-title">公共施設の使いかた・作りかたガイドライン</h1>
+            
+            <div class="notice-area">
+                <p>このルールは、みんなで使う場所（公共施設）をきれいに保ち、便利に使うための約束事です。</p>
+                <p style="margin-top: 5px; font-size: 0.8rem; font-weight: bold;">最終改定日: 2026/02/15</p>
+            </div>
+
+            <section class="easy-section">
+                <h2>1. 公共施設（こうきょうしせつ）とは</h2>
+                <div class="rule-box">
+                    <h3>対象になる場所</h3>
+                    <p>
+                        (1) <strong>運営が作った場所：</strong>スポーン地点、役場、中央駅、大きな道路など。<br>
+                        (2) <strong>認められた場所：</strong>有志が作り、運営が公認した駅、農場、トラップ、植林場など。
+                    </p>
+                </div>
+                <div class="rule-box">
+                    <h3>2. 公共施設を作りたいとき</h3>
+                    <p>たくさんの人に使ってもらう施設を作り、保護してほしいときは、運営に申請できます。認められると保護がかかりますが、景色をこわすものや、近隣に同じ施設がある場合は認められないことがあります。</p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>🚫 公共施設でやってはいけないこと</h2>
+                <div class="rule-box bad-list">
+                    <h3>3. 勝手に変えない・置かない</h3>
+                    <p>
+                        ・公共施設を勝手に作り変えたり、こわしたりしてはいけません。<br>
+                        ・看板をたくさん立てたり、自分のチェストやベッドを放置しないでください。
+                    </p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>🛣️ 街道（大きな道路）のルール</h2>
+                <div class="rule-box nature-list">
+                    <h3>4. 道路のまわりを守る</h3>
+                    <p>
+                        ・<strong>5マス離す：</strong>道路の端から左右5マス以内には建物を建てないでください。<br>
+                        ・<strong>道をつなぐ：</strong>私道をつなぐときは、歩道の色や街灯のデザインを周りに合わせましょう。<br>
+                        ・<strong>圧迫感をなくす：</strong>道路をふさいだり、覆いかぶさるような不自然な建物は修正をお願いします。
+                    </p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>⚙️ 施設の機能と「有料」について</h2>
+                <div class="rule-box point-box">
+                    <h3>5. 正しく使う・戻す</h3>
+                    <p>
+                        ・<strong>機械をこわさない：</strong>トロッコや自動ドアの仕組みをジャマしないでください。<br>
+                        ・<strong>資源を元に戻す：</strong>農場や植林場を使ったら、必ず<strong>「植え直し」</strong>をしてください。<br>
+                        ・<strong>有料施設：</strong>運営に認められた施設は「利用料」がかかる場合があります。正しく支払いましょう。
+                    </p>
+                </div>
+            </section>
+
+            <section class="easy-section">
+                <h2>🧹 管理と片付けのルール</h2>
+                <div class="rule-box">
+                    <h3>6. 管理する義務</h3>
+                    <p>作った人は定期的なお手入れをしてください。1ヶ月以上放置され、ボロボロになった施設は公共施設の資格を取り消すことがあります。また、工事のために移動をお願いすることもあります。</p>
+                </div>
+                <div class="rule-box bad-list">
+                    <h3>7. ルールを守らなかったとき</h3>
+                    <p>わざとこわした場合はログを調べて罰を与えます。ルールに合わない私物などは、注意看板を立てても直らない場合、運営が撤去や移動を行います。</p>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="public-facility.html" class="btn-outline">正式な公共施設ガイドラインを確認する</a><br>
+                <a href="terms-list.html" style="display: inline-block; margin-top: 20px; color: #666; text-decoration: none;">← 規約一覧へ戻る</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース一覧 - 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/include.js"></script>
+    <script src="../js/day-count.js"></script>
+    <style>
+        /* --- 全体レイアウト --- */
+        body {
+            /* 特定のフォント指定を削除し、システム標準を使用 */
+            font-family: sans-serif;
+        }
+
+        .archive-page-main {
+            display: block !important;
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 40px 20px 100px;
+        }
+        
+        /* --- ヒーローエリア --- */
+        .archive-hero {
+            text-align: center;
+            padding: 60px 30px;
+            background: #ffffff;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+        }
+
+        .archive-hero h1 { 
+            font-size: 2.5rem; 
+            color: #4a4a4a; 
+            margin: 0; 
+            font-weight: bold; 
+        }
+        .archive-hero p { 
+            color: var(--primary-color); 
+            font-weight: bold; 
+            margin-top: 10px; 
+            letter-spacing: 2px; 
+        }
+
+        /* --- フィルタボタン --- */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: #fff;
+            border: 2px solid #eee;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+
+        /* --- リスト表示 --- */
+        .archive-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-height: 200px;
+        }
+
+        .archive-item {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            gap: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .archive-item:hover {
+            transform: translateX(10px);
+            border-color: var(--primary-color);
+        }
+
+        .archive-date { 
+            color: #999; 
+            font-size: 0.9rem; 
+            min-width: 110px; 
+        }
+
+        .archive-category {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .archive-title { 
+            color: #333; 
+            font-size: 1.05rem; 
+            font-weight: bold; 
+            flex: 1; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-to-top-area { margin-top: 60px; text-align: center; }
+
+        @media (max-width: 768px) {
+            .archive-item { flex-direction: column; align-items: flex-start; padding: 20px; gap: 8px; }
+            .archive-item:hover { transform: translateY(-5px); }
+            .archive-date { min-width: auto; }
+        }
+    </style>
+    <link rel="shortcut icon" href="../images/server_icon.png">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="archive-page-main">
+        <section class="archive-hero">
+            <h1>Archive</h1>
+            <p>過去の記事一覧</p>
+        </section>
+
+        <div id="filter-area" class="filter-container">
+            <button class="filter-btn active" data-category="all">すべて表示</button>
+        </div>
+
+        <div id="archive-list" class="archive-list">
+            <p style="text-align:center;">読み込み中...</p>
+        </div>
+
+        <div class="back-to-top-area">
+            <a href="../index.html" class="btn-nav btn-outline-nav">トップページへ戻る</a>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const listContainer = document.getElementById('archive-list');
+            const filterArea = document.getElementById('filter-area');
+            let allNews = [];
+
+            try {
+                const response = await fetch('../admin/news.json');
+                allNews = await response.json();
+
+                if (allNews.length === 0) {
+                    listContainer.innerHTML = '<p style="text-align:center;">記事がありません。</p>';
+                    return;
+                }
+
+                // カテゴリボタンの生成
+                const categories = [...new Set(allNews.map(item => item.category))];
+                categories.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.className = 'filter-btn';
+                    btn.textContent = cat;
+                    btn.dataset.category = cat;
+                    filterArea.appendChild(btn);
+                });
+
+                const renderNews = (filter) => {
+                    listContainer.innerHTML = '';
+                    const filteredData = filter === 'all' 
+                        ? allNews 
+                        : allNews.filter(item => item.category === filter);
+
+                    filteredData.forEach(item => {
+                        const html = `
+                            <a href="../${item.url}" class="archive-item">
+                                <span class="archive-date">${item.date}</span>
+                                <span class="archive-category">${item.category}</span>
+                                <span class="archive-title">${item.title}</span>
+                            </a>
+                        `;
+                        listContainer.insertAdjacentHTML('beforeend', html);
+                    });
+                };
+
+                filterArea.addEventListener('click', (e) => {
+                    if (!e.target.classList.contains('filter-btn')) return;
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderNews(e.target.dataset.category);
+                });
+
+                renderNews('all');
+
+            } catch (error) {
+                listContainer.innerHTML = '<p style="color:red; text-align:center;">読み込みエラー</p>';
+            }
+        });
+    </script>
+</body>
+</html>

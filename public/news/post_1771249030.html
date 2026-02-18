@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【お知らせ】サーバー稼働日数カウンターを設置しました - 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+    <script src="../js/include.js" defer></script>
+    <script src="../js/day-count.js"></script>
+    <style>
+        /* =========================================
+           ニュース詳細ページのレイアウト修正
+           ========================================= */
+        
+        /* ヘッダーの裏にコンテンツが潜り込むのを防ぐ */
+        .section-padding {
+            padding-top: calc(var(--header-height) + 40px) !important;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* ページに馴染むよう軽い影を追加 */
+        }
+
+        .news-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            height: auto !important; 
+            min-height: auto !important;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .news-category-badge {
+            background: var(--primary-color); /* 共通変数のオレンジを使用 */
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* タイトル崩れの修正 */
+        .news-title {
+            font-size: clamp(1.5rem, 5vw, 2.2rem); 
+            line-height: 1.4 !important; 
+            color: #333;
+            margin: 10px 0;
+            word-wrap: break-word; 
+            overflow: visible !important; 
+        }
+
+        .news-author-info {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        /* 本文内の箇条書きを整える */
+        .news-content ul {
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .news-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* 本文内のリンク色を調整 */
+        .news-content a {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .news-footer {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px dashed #e0ddd9; /* 共通デザインに合わせる */
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">2026.02.16</span>
+                    <span class="news-category-badge">お知らせ</span>
+                </div>
+                
+                <h1 class="news-title">【お知らせ】サーバー稼働日数カウンターを設置しました</h1>
+                
+                <div class="news-author-info">
+                    Posted by tash087                </div>
+            </header>
+
+            <section class="news-content">
+                <p>いつも「箱庭クラフト」を応援いただきありがとうございます。</p>
+
+<p>当サーバーは、前身である「tash鯖」時代から数えて、非常に長い期間皆様に支えられてきました。この度、これまでの歩みを皆様と共有するため、公式サイトに<strong>「稼働日数カウンター」</strong>を設置いたしました。</p>
+
+
+
+<p>2025年8月の「tash鯖」始動から今日まで、数えきれないほどの建築物や物語が生まれました。<br>そして12月に「箱庭クラフト」へと進化を遂げ、今もなお新しい仲間が増え続けていることを、運営チーム一同心より嬉しく思っています。</p>
+
+<p>日数が積み重なっていくように、これからも皆様と共に楽しい思い出を積み上げていければ幸いです。</p>
+
+<p>今後とも「箱庭クラフト」をよろしくお願いいたします！</p>            </section>
+
+            <footer class="news-footer">
+                <a href="../index.html" class="btn-nav btn-outline-nav">トップへ戻る</a>
+            </footer>
+        </article>
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+</html>
