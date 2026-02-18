@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ニュース作成ツール (JS版)</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 50px auto; line-height: 1.6; background: #f4f7f6; padding: 20px; }
+        .panel { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { font-size: 1.5rem; margin-bottom: 20px; text-align: center; }
+        input, textarea, select { width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box; border: 1px solid #ddd; border-radius: 5px; }
+        .btn-group { display: flex; gap: 10px; }
+        button { flex: 1; background: #e67e22; color: white; border: none; padding: 12px; cursor: pointer; border-radius: 5px; font-weight: bold; font-size: 1rem; }
+        button:hover { background: #d35400; }
+        .result-box { margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 5px; display: none; }
+        pre { background: #eee; padding: 10px; overflow-x: auto; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h1>📰 ニュース作成ツール</h1>
+    <p style="font-size: 0.8rem; color: #666;">※このツールはファイルを生成します。生成後、手動でリポジトリに追加してPushしてください。</p>
+
+    <label>タイトル:</label>
+    <input type="text" id="title" placeholder="例：イベント開催のお知らせ">
+    
+    <div style="display: flex; gap: 15px;">
+        <div style="flex: 1;">
+            <label>カテゴリ:</label>
+            <select id="category">
+                <option>お知らせ</option>
+                <option>アップデート</option>
+                <option>イベント</option>
+                <option>重要</option>
+            </select>
+        </div>
+        <div style="flex: 1;">
+            <label>投稿者名:</label>
+            <input type="text" id="author" value="tash087">
+        </div>
+    </div>
+
+    <label>本文 (HTMLタグ使用可):</label>
+    <textarea id="content" rows="12" placeholder="詳細を入力してください..."></textarea>
+    
+    <div class="btn-group">
+        <button onclick="generateFiles()">ファイルを生成して保存</button>
+    </div>
+
+    <div id="result" class="result-box">
+        <p>✅ ファイルを生成しました！</p>
+        <p>1. ダウンロードされたHTMLを <code>public/news/</code> に入れてください。</p>
+        <p>2. 下のJSONコードをコピーして <code>news.json</code> の先頭（[ の直後）に貼り付けてください。</p>
+        <pre id="json-code"></pre>
+    </div>
+</div>
+
+<script>
+function generateFiles() {
+    const title = document.getElementById('title').value;
+    const category = document.getElementById('category').value;
+    const author = document.getElementById('author').value;
+    const content = document.getElementById('content').value;
+    const date = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.');
+    const id = Math.floor(Date.now() / 1000);
+    const fileName = `post_${id}.html`;
+
+    // 1. テンプレートHTMLの生成 (template.phpの構造を移植)
+    const htmlTemplate = `<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title} - 箱庭クラフト</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../images/server_icon.png" type="image/png">
+    <script src="../js/include.js" defer><\/script>
+    <script src="../js/day-count.js"><\/script>
+    <script src="../js/slider.js" defer><\/script>
+    <style>
+        .section-padding { padding-top: calc(var(--header-height) + 40px) !important; }
+        .news-detail-container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .news-header { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0; }
+        .news-meta { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; font-size: 0.95rem; color: #888; }
+        .news-category-badge { background: #e67e22; color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; }
+        .news-title { font-size: 2.2rem; line-height: 1.4; color: #333; margin: 10px 0; }
+        .news-author-info { margin-top: 15px; color: #666; font-size: 0.9rem; }
+        .news-content { line-height: 1.8; font-size: 1.05rem; color: #444; }
+        .news-footer { margin-top: 50px; text-align: center; padding-top: 30px; border-top: 2px dashed #e0ddd9; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"><\/div>
+    <main class="container section-padding">
+        <article class="news-detail-container">
+            <header class="news-header">
+                <div class="news-meta">
+                    <span class="news-date">${date}<\/span>
+                    <span class="news-category-badge">${category}<\/span>
+                </div>
+                <h1 class="news-title">${title}<\/h1>
+                <div class="news-author-info">Posted by ${author}<\/div>
+            </header>
+            <section class="news-content">${content}<\/section>
+            <footer class="news-footer">
+                <a href="../index.html" class="btn-nav btn-outline-nav">トップへ戻る</a>
+            </footer>
+        </article>
+    </main>
+    <div id="footer-placeholder"><\/div>
+</body>
+</html>`;
+
+    // 2. HTMLファイルのダウンロード
+    const blob = new Blob([htmlTemplate], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fileName;
+    a.click();
+
+    // 3. news.json 用のテキスト表示
+    const jsonEntry = {
+        "date": date,
+        "category": category,
+        "title": title,
+        "url": `news/${fileName}`
+    };
+    document.getElementById('json-code').innerText = JSON.stringify(jsonEntry, null, 4) + ",";
+    document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>
